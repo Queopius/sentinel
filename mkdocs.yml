@@ -1,0 +1,47 @@
+site_name: Queopius Shield
+site_description: HTTP Security & HTTPS Hardening for Laravel
+site_url: https://queopius-shield.readthedocs.io/
+repo_url: https://github.com/queopius/shield
+repo_name: queopius/shield
+edit_uri: edit/main/packages/queopius/shield/docs/
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Quickstart: guides/quickstart.md
+  - Installation:
+      - Package Install: guides/installation.md
+      - Local Monorepo Setup: local-development.md
+  - Configuration: config-reference.md
+  - Security:
+      - Internationalization: guides/i18n.md
+      - Security Concepts: guides/security-concepts.md
+      - Best Practices: guides/best-practices.md
+      - Architecture: architecture.md
+      - UI Dashboard: ui-dashboard.md
+      - CSP Reporting: csp-reporting.md
+      - Access Control: guides/access-control.md
+  - Operations:
+      - Commands: guides/commands.md
+      - Local HTTPS Testing: guides/local-https.md
+      - Production Readiness: production-readiness.md
+      - Read the Docs Setup: guides/readthedocs.md
+      - Troubleshooting: guides/troubleshooting.md
+  - Product:
+      - Roadmap: roadmap.md
+      - FAQ: guides/faq.md
