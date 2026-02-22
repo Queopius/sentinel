@@ -38,6 +38,7 @@ nav:
       - Access Control: guides/access-control.md
   - Operations:
       - Commands: guides/commands.md
+      - Release and Packagist: guides/release-and-packagist.md
       - Local HTTPS Testing: guides/local-https.md
       - Production Readiness: production-readiness.md
       - Read the Docs Setup: guides/readthedocs.md

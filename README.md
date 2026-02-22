@@ -1,7 +1,7 @@
 # Queopius Shield — HTTP Security & HTTPS Hardening for Laravel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png" alt="Queopius Shield logo" width="220">
+  <img src="https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png" alt="Queopius Shield logo" width="660" style="max-width: 100%; height: auto;">
 </p>
 
 <p align="center">
@@ -292,6 +292,7 @@ Release-hardening checklist: `docs/production-readiness.md`.
 
 - Contribution guide: `CONTRIBUTING.md`
 - Security policy: `SECURITY.md`
+- Release + Packagist automation: `docs/guides/release-and-packagist.md`
 
 ## Licensing
 
