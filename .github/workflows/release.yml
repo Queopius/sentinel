@@ -18,8 +18,12 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          extensions: sqlite3, pdo_sqlite, mbstring, openssl, json
           coverage: none
           tools: composer:v2
+
+      - name: Verify SQLite extensions
+        run: php -m | grep -E "sqlite3|pdo_sqlite"
 
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
@@ -87,4 +91,3 @@ jobs:
           fi
 
           curl -fsSL -X POST "$PACKAGIST_WEBHOOK_URL"
-

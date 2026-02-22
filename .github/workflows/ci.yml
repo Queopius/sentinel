@@ -18,8 +18,12 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          extensions: sqlite3, pdo_sqlite, mbstring, openssl, json
           coverage: none
           tools: composer:v2
+
+      - name: Verify SQLite extensions
+        run: php -m | grep -E "sqlite3|pdo_sqlite"
 
       - name: Cache Composer dependencies
         uses: actions/cache@v4
