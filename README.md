@@ -288,6 +288,11 @@ See `docs/` for architecture, config reference, CSP reporting, dashboard and roa
 
 Release-hardening checklist: `docs/production-readiness.md`.
 
+## Community and governance
+
+- Contribution guide: `CONTRIBUTING.md`
+- Security policy: `SECURITY.md`
+
 ## Licensing
 
 - Code: **MIT** (see `LICENSE`).

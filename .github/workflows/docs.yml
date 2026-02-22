@@ -10,10 +10,6 @@ jobs:
   docs-build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: packages/queopius/shield
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,7 +23,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('packages/queopius/shield/docs/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('docs/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
