@@ -19,6 +19,7 @@
     $mutedClass = $isDark ? 'text-slate-300' : 'text-stone-700';
     $asideClass = $isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-stone-200';
     $surfaceClass = $isDark ? 'bg-slate-800 border-slate-700' : 'bg-stone-50 border-stone-200';
+    $shieldLogoUrl = (string) config('shield.ui.logo_url', '');
     $baseShieldPath = \Illuminate\Support\Facades\Route::has('shield.dashboard')
       ? route('shield.dashboard', [], false)
       : '/shield';
@@ -36,6 +37,14 @@
   <div class="max-w-7xl mx-auto p-6 lg:flex lg:items-start gap-6">
     <aside class="lg:w-64 w-full mb-4 lg:mb-0">
       <div class="rounded-xl border {{ $asideClass }} p-4 lg:sticky lg:top-4">
+        @if($shieldLogoUrl !== '')
+          <img
+            src="{{ $shieldLogoUrl }}"
+            alt="Queopius Shield"
+            class="mx-auto mb-3 h-auto max-h-16 w-auto max-w-full"
+            loading="lazy"
+          >
+        @endif
         <h1 class="text-xl font-bold">{{ __('shield.title') }}</h1>
         <p class="text-xs {{ $subtleClass }} mb-4">{{ __('shield.subtitle') }}</p>
 

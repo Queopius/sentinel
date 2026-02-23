@@ -87,6 +87,7 @@ return [
         'path' => env('SHIELD_UI_PATH', 'shield'),
         'middleware' => ['web', 'auth'],
         'require_ability' => null,
+        'logo_url' => 'https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png',
         'theme' => env('SHIELD_UI_THEME', 'light'), // light|dark|auto
         'show_csp_reports' => true,
         'endpoint_scan' => [

@@ -1,5 +1,9 @@
 # Queopius Shield
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png" alt="Queopius Shield logo" width="420" style="max-width: 100%; height: auto;">
+</p>
+
 HTTP Security & HTTPS Hardening for Laravel.
 
 Queopius Shield helps teams apply production-grade HTTP security with:
