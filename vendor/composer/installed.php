@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'queopius/shield',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'name' => 'queopius/sentinel',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '6ca7e66ec069dd378a79fd22074d878e81b8e544',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -875,10 +875,10 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'queopius/shield' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+        'queopius/sentinel' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6ca7e66ec069dd378a79fd22074d878e81b8e544',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

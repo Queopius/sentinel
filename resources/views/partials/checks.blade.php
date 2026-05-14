@@ -2,7 +2,7 @@
   $dark = (bool) ($isDark ?? false);
 @endphp
 <div class="rounded-xl border {{ $dark ? 'border-slate-700 bg-slate-900' : 'border-stone-200 bg-white' }} p-4">
-  <h3 class="text-lg font-semibold mb-3">{{ __('shield.checks.title') }}</h3>
+  <h3 class="text-lg font-semibold mb-3">{{ __('sentinel.checks.title') }}</h3>
   <div class="space-y-2">
     @foreach($checks as $check)
       @php

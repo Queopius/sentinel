@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests\Unit;
+namespace Queopius\Sentinel\Tests\Unit;
 
-use Queopius\Shield\Exceptions\InvalidShieldConfigException;
-use Queopius\Shield\Support\CspBuilder;
-use Queopius\Shield\Tests\TestCase;
+use Queopius\Sentinel\Exceptions\InvalidSentinelConfigException;
+use Queopius\Sentinel\Support\CspBuilder;
+use Queopius\Sentinel\Tests\TestCase;
 
 class CspBuilderTest extends TestCase
 {
@@ -48,7 +48,7 @@ class CspBuilderTest extends TestCase
 
     public function test_strict_validation_throws_for_invalid_directive(): void
     {
-        $this->expectException(InvalidShieldConfigException::class);
+        $this->expectException(InvalidSentinelConfigException::class);
 
         $builder = new CspBuilder;
         $builder->build(['directives' => ['bad-directive' => ["'self'"]]], null, true);

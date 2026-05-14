@@ -16,7 +16,7 @@
 ## 3) Use layered HTTPS enforcement
 
 - Enforce HTTPS at edge (Nginx/Apache/LB/CDN).
-- Keep Shield `https.redirect` enabled as backup.
+- Keep Sentinel `https.redirect` enabled as backup.
 - Add HSTS only when TLS is stable and complete.
 
 ## 4) Keep config explicit and minimal
@@ -27,14 +27,14 @@
 
 ## 5) Monitor continuously
 
-- Run `shield:audit` in CI/CD.
-- Run `shield:scan` against key endpoints.
+- Run `sentinel:audit` in CI/CD.
+- Run `sentinel:scan` against key endpoints.
 - Review dashboard warnings after each release.
 
 ## 6) Manage CSP reports lifecycle
 
 - Enable storage only when needed.
-- Prune with `shield:prune-reports`.
+- Prune with `sentinel:prune-reports`.
 - Schedule pruning daily.
 
 ## 7) Test in environments
@@ -45,7 +45,7 @@
 
 ## 8) Keep package and framework updated
 
-- Update Laravel and Shield regularly.
+- Update Laravel and Sentinel regularly.
 - Re-run audit/scan after upgrades.
 - Re-check published views when package dashboard changes.
 

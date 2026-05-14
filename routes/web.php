@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
-use Queopius\Shield\Http\Controllers\DashboardController;
+use Queopius\Sentinel\Http\Controllers\DashboardController;
 
 Route::group([
-    'prefix' => (string) config('shield.ui.path', 'shield'),
-    'middleware' => (array) config('shield.ui.middleware', ['web', 'auth']),
+    'prefix' => (string) config('sentinel.ui.path', 'sentinel'),
+    'middleware' => (array) config('sentinel.ui.middleware', ['web', 'auth']),
 ], static function (): void {
-    Route::get('/', DashboardController::class)->name('shield.dashboard');
+    Route::get('/', DashboardController::class)->name('sentinel.dashboard');
 });

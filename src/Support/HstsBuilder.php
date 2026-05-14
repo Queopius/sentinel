@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Support;
+namespace Queopius\Sentinel\Support;
 
 class HstsBuilder
 {

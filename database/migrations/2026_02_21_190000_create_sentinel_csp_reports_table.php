@@ -10,7 +10,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('shield_csp_reports', function (Blueprint $table): void {
+        Schema::create('sentinel_csp_reports', function (Blueprint $table): void {
             $table->id();
             $table->json('payload')->nullable();
             $table->text('document_uri')->nullable();
@@ -26,6 +26,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('shield_csp_reports');
+        Schema::dropIfExists('sentinel_csp_reports');
     }
 };

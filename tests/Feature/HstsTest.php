@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests\Feature;
+namespace Queopius\Sentinel\Tests\Feature;
 
-use Queopius\Shield\Tests\TestCase;
+use Queopius\Sentinel\Tests\TestCase;
 
 class HstsTest extends TestCase
 {

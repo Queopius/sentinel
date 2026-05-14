@@ -104,8 +104,8 @@ class ComposerStaticInitd7ee0d928a7a485d11217bcb03469f4f
         ),
         'Q' =>
         array (
-            'Queopius\\Shield\\Tests\\' => 22,
-            'Queopius\\Shield\\' => 16,
+            'Queopius\\Sentinel\\Tests\\' => 24,
+            'Queopius\\Sentinel\\' => 18,
         ),
         'P' =>
         array (
@@ -345,11 +345,11 @@ class ComposerStaticInitd7ee0d928a7a485d11217bcb03469f4f
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
-        'Queopius\\Shield\\Tests\\' =>
+        'Queopius\\Sentinel\\Tests\\' =>
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'Queopius\\Shield\\' =>
+        'Queopius\\Sentinel\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

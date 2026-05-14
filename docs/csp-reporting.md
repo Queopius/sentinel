@@ -5,7 +5,7 @@ Enable endpoint and storage:
 ```php
 'csp_reports' => [
   'enabled' => true,
-  'route_path' => 'shield/csp-reports',
+  'route_path' => 'sentinel/csp-reports',
   'store_database' => true,
   'prune_days' => 30,
 ]
@@ -20,11 +20,11 @@ Enable endpoint and storage:
 ## Pruning
 
 ```bash
-php artisan shield:prune-reports --days=30
+php artisan sentinel:prune-reports --days=30
 ```
 
 Scheduler example:
 
 ```php
-$schedule->command('shield:prune-reports')->daily();
+$schedule->command('sentinel:prune-reports')->daily();
 ```

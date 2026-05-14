@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests;
+namespace Queopius\Sentinel\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Queopius\Shield\Http\Middleware\AddSecurityHeaders;
-use Queopius\Shield\Http\Middleware\EnforceHttps;
-use Queopius\Shield\ShieldServiceProvider;
+use Queopius\Sentinel\Http\Middleware\AddSecurityHeaders;
+use Queopius\Sentinel\Http\Middleware\EnforceHttps;
+use Queopius\Sentinel\SentinelServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -18,7 +18,7 @@ abstract class TestCase extends Orchestra
 
     protected function getPackageProviders($app): array
     {
-        return [ShieldServiceProvider::class];
+        return [SentinelServiceProvider::class];
     }
 
     protected function defineEnvironment($app): void
@@ -29,11 +29,12 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
-        $shield = require __DIR__.'/../config/shield.php';
-        $shield['ui']['enabled'] = true;
-        $shield['ui']['middleware'] = ['web'];
-        $shield['csp_reports']['enabled'] = true;
-        $app['config']->set('shield', $shield);
+        $app['config']->set('logging.default', 'null');
+        $sentinel = require __DIR__.'/../config/sentinel.php';
+        $sentinel['ui']['enabled'] = true;
+        $sentinel['ui']['middleware'] = ['web'];
+        $sentinel['csp_reports']['enabled'] = true;
+        $app['config']->set('sentinel', $sentinel);
         $app['config']->set('app.key', 'base64:'.base64_encode(random_bytes(32)));
     }
 
@@ -41,7 +42,7 @@ abstract class TestCase extends Orchestra
     {
         $this->loadLaravelMigrations();
 
-        $this->app['db']->connection()->getSchemaBuilder()->create('shield_csp_reports', function (Blueprint $table): void {
+        $this->app['db']->connection()->getSchemaBuilder()->create('sentinel_csp_reports', function (Blueprint $table): void {
             $table->id();
             $table->json('payload')->nullable();
             $table->text('document_uri')->nullable();

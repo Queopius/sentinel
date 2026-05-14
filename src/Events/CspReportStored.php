@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Events;
+namespace Queopius\Sentinel\Events;
 
-use Queopius\Shield\Models\CspReport;
+use Queopius\Sentinel\Models\CspReport;
 
 class CspReportStored
 {

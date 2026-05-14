@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Http\Controllers;
+namespace Queopius\Sentinel\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
-use Queopius\Shield\Events\CspReportStored;
-use Queopius\Shield\Models\CspReport;
+use Queopius\Sentinel\Events\CspReportStored;
+use Queopius\Sentinel\Models\CspReport;
 
 class CspReportController extends Controller
 {
@@ -24,7 +24,7 @@ class CspReportController extends Controller
 
         $report = (array) ($payload['csp-report'] ?? $payload['body'] ?? $payload);
 
-        if ((bool) config('shield.csp_reports.store_database', true)) {
+        if ((bool) config('sentinel.csp_reports.store_database', true)) {
             try {
                 $row = CspReport::query()->create([
                     'payload' => $payload,
@@ -48,8 +48,8 @@ class CspReportController extends Controller
 
     private function logInvalid(string $message): void
     {
-        if ((bool) config('shield.csp_reports.log_invalid_payloads', true)) {
-            Log::warning('[Queopius Shield] '.$message);
+        if ((bool) config('sentinel.csp_reports.log_invalid_payloads', true)) {
+            Log::warning('[Queopius Sentinel] '.$message);
         }
     }
 

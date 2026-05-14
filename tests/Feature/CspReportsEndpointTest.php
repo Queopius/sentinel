@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests\Feature;
+namespace Queopius\Sentinel\Tests\Feature;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Queopius\Shield\Models\CspReport;
-use Queopius\Shield\Tests\TestCase;
+use Queopius\Sentinel\Models\CspReport;
+use Queopius\Sentinel\Tests\TestCase;
 
 class CspReportsEndpointTest extends TestCase
 {
@@ -15,8 +15,8 @@ class CspReportsEndpointTest extends TestCase
     {
         parent::setUp();
 
-        if (! Schema::hasTable('shield_csp_reports')) {
-            Schema::create('shield_csp_reports', function (Blueprint $table): void {
+        if (! Schema::hasTable('sentinel_csp_reports')) {
+            Schema::create('sentinel_csp_reports', function (Blueprint $table): void {
                 $table->id();
                 $table->json('payload')->nullable();
                 $table->text('document_uri')->nullable();
@@ -42,13 +42,13 @@ class CspReportsEndpointTest extends TestCase
             ],
         ];
 
-        $this->postJson('/shield/csp-reports', $payload)->assertNoContent();
-        $this->assertDatabaseHas('shield_csp_reports', ['effective_directive' => 'script-src']);
+        $this->postJson('/sentinel/csp-reports', $payload)->assertNoContent();
+        $this->assertDatabaseHas('sentinel_csp_reports', ['effective_directive' => 'script-src']);
     }
 
     public function test_tolerates_invalid_payload(): void
     {
-        $this->postJson('/shield/csp-reports', [])->assertNoContent();
+        $this->postJson('/sentinel/csp-reports', [])->assertNoContent();
         $this->assertSame(0, CspReport::query()->count());
     }
 }

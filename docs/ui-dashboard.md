@@ -5,7 +5,7 @@ Enable UI via config:
 ```php
 'ui' => [
   'enabled' => true,
-  'path' => 'shield',
+  'path' => 'sentinel',
   'middleware' => ['web', 'auth'], // recommended and default
   'require_ability' => null,
   'theme' => 'light', // light|dark|auto
@@ -15,7 +15,7 @@ Enable UI via config:
 Access hardening:
 
 - Use `auth` middleware (default).
-- Set `require_ability` (for example `viewShieldDashboard`) to restrict dashboard to admin roles/permissions.
+- Set `require_ability` (for example `viewSentinelDashboard`) to restrict dashboard to admin roles/permissions.
 
 Dashboard includes:
 
@@ -34,9 +34,9 @@ Dashboard includes:
 - CSP learning suggestions
 - Optional recent CSP reports table
 
-Views are publishable with `shield-views` tag.
+Views are publishable with `sentinel-views` tag.
 
 Layout:
 
-- Reusable base layout at `shield::layouts.app`
+- Reusable base layout at `sentinel::layouts.app`
 - Dashboard view extends the layout and splits content by section with a sidebar

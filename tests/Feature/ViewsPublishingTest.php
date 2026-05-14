@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests\Feature;
+namespace Queopius\Sentinel\Tests\Feature;
 
-use Queopius\Shield\Tests\TestCase;
+use Queopius\Sentinel\Tests\TestCase;
 
 class ViewsPublishingTest extends TestCase
 {
     public function test_view_namespace_resolves(): void
     {
-        $view = view('shield::dashboard', [
+        $view = view('sentinel::dashboard', [
             'summary' => ['https_detected' => false, 'https_redirect_enabled' => false, 'hsts_applied' => false, 'csp_mode' => 'off', 'warnings_count' => 0],
             'checks' => [],
             'warnings' => [],
@@ -43,6 +43,6 @@ class ViewsPublishingTest extends TestCase
             ],
         ])->render();
 
-        $this->assertStringContainsString('Queopius Shield', $view);
+        $this->assertStringContainsString('Queopius Sentinel', $view);
     }
 }

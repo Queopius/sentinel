@@ -1,6 +1,6 @@
 # Release and Packagist Automation
 
-Queopius Shield includes `.github/workflows/release.yml` with automated release steps.
+Queopius Sentinel includes `.github/workflows/release.yml` with automated release steps.
 
 ## Trigger
 
@@ -31,7 +31,7 @@ Optional but recommended:
 
 Where to get it:
 
-1. Open your package on Packagist (`queopius/shield`)
+1. Open your package on Packagist (`queopius/sentinel`)
 2. Go to package settings/update section
 3. Copy the generated update webhook URL
 4. Add it as GitHub secret in:

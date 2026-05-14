@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Contracts;
+namespace Queopius\Sentinel\Contracts;
 
 interface AuditFormatter
 {

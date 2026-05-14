@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Tests\Unit;
+namespace Queopius\Sentinel\Tests\Unit;
 
-use Queopius\Shield\Support\HstsBuilder;
-use Queopius\Shield\Tests\TestCase;
+use Queopius\Sentinel\Support\HstsBuilder;
+use Queopius\Sentinel\Tests\TestCase;
 
 class HstsBuilderTest extends TestCase
 {

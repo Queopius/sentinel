@@ -1,8 +1,8 @@
 {
-  "name": "queopius/shield",
-  "description": "Queopius Shield — HTTP Security & HTTPS Hardening for Laravel",
+  "name": "queopius/sentinel",
+  "description": "Queopius Sentinel — HTTP Security & HTTPS Hardening for Laravel",
   "type": "library",
-  "homepage": "https://github.com/queopius/shield",
+  "homepage": "https://github.com/queopius/sentinel",
   "license": "MIT",
   "keywords": ["laravel", "security", "headers", "https", "csp", "hsts"],
   "authors": [
@@ -13,15 +13,15 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/queopius/shield/issues",
-    "source": "https://github.com/queopius/shield",
-    "docs": "https://queopius-shield.readthedocs.io/",
-    "security": "https://github.com/queopius/shield/security/policy"
+    "issues": "https://github.com/queopius/sentinel/issues",
+    "source": "https://github.com/queopius/sentinel",
+    "docs": "https://queopius-sentinel.readthedocs.io/",
+    "security": "https://github.com/queopius/sentinel/security/policy"
   },
   "funding": [
     {
       "type": "other",
-      "url": "https://github.com/queopius/shield"
+      "url": "https://github.com/queopius/sentinel"
     }
   ],
   "require": {
@@ -40,18 +40,18 @@
   },
   "autoload": {
     "psr-4": {
-      "Queopius\\Shield\\": "src/"
+      "Queopius\\Sentinel\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Queopius\\Shield\\Tests\\": "tests/"
+      "Queopius\\Sentinel\\Tests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Queopius\\Shield\\ShieldServiceProvider"
+        "Queopius\\Sentinel\\SentinelServiceProvider"
       ]
     }
   },

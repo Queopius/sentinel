@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Support;
+namespace Queopius\Sentinel\Support;
 
-class ShieldPresetResolver
+class SentinelPresetResolver
 {
     public function resolvedConfig(array $config): array
     {

@@ -1,20 +1,20 @@
-# Queopius Shield — HTTP Security & HTTPS Hardening for Laravel
+# Queopius Sentinel — HTTP Security & HTTPS Hardening for Laravel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png" alt="Queopius Shield logo" width="660" style="max-width: 100%; height: auto;">
+  <img src="https://raw.githubusercontent.com/queopius/sentinel/main/.github/assets/logo-queopius-sentinel.png" alt="Queopius Sentinel logo" width="660" style="max-width: 100%; height: auto;">
 </p>
 
 <p align="center">
-  <a href="https://github.com/queopius/shield/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/queopius/shield/ci.yml?branch=main&label=ci" alt="CI"></a>
-  <a href="https://github.com/queopius/shield/actions/workflows/docs.yml"><img src="https://img.shields.io/github/actions/workflow/status/queopius/shield/docs.yml?branch=main&label=docs" alt="Docs Build"></a>
-  <a href="https://packagist.org/packages/queopius/shield"><img src="https://img.shields.io/packagist/v/queopius/shield" alt="Latest Version"></a>
-  <a href="https://packagist.org/packages/queopius/shield"><img src="https://img.shields.io/packagist/dt/queopius/shield" alt="Total Downloads"></a>
-  <a href="https://queopius-shield.readthedocs.io/"><img src="https://readthedocs.org/projects/queopius-shield/badge/?version=latest" alt="Documentation Status"></a>
+  <a href="https://github.com/queopius/sentinel/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/queopius/sentinel/ci.yml?branch=main&label=ci" alt="CI"></a>
+  <a href="https://github.com/queopius/sentinel/actions/workflows/docs.yml"><img src="https://img.shields.io/github/actions/workflow/status/queopius/sentinel/docs.yml?branch=main&label=docs" alt="Docs Build"></a>
+  <a href="https://packagist.org/packages/queopius/sentinel"><img src="https://img.shields.io/packagist/v/queopius/sentinel" alt="Latest Version"></a>
+  <a href="https://packagist.org/packages/queopius/sentinel"><img src="https://img.shields.io/packagist/dt/queopius/sentinel" alt="Total Downloads"></a>
+  <a href="https://queopius-sentinel.readthedocs.io/"><img src="https://readthedocs.org/projects/queopius-sentinel/badge/?version=latest" alt="Documentation Status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/docs%20license-CC%20BY%204.0-lightgrey" alt="Docs License"></a>
 </p>
 
-Queopius Shield is a production-ready Laravel package for HTTP security hardening with great DX:
+Queopius Sentinel is a production-ready Laravel package for HTTP security hardening with great DX:
 
 - Security headers (HSTS, CSP, Referrer-Policy, and more)
 - HTTPS enforcement middleware
@@ -24,7 +24,7 @@ Queopius Shield is a production-ready Laravel package for HTTP security hardenin
 - Security audit, endpoint scan, and report pruning commands
 - Publishable views for full UI customization
 
-## Why Queopius Shield
+## Why Queopius Sentinel
 
 - Safe-by-default with preset support
 - Progressive rollout path (CSP report-only first)
@@ -33,7 +33,7 @@ Queopius Shield is a production-ready Laravel package for HTTP security hardenin
 
 ## Versioning and Laravel compatibility
 
-Queopius Shield follows **SemVer** for package versions.
+Queopius Sentinel follows **SemVer** for package versions.
 
 - `MAJOR`: breaking changes
 - `MINOR`: new features, backward compatible
@@ -41,7 +41,7 @@ Queopius Shield follows **SemVer** for package versions.
 
 ### Compatibility matrix
 
-| Shield version | Laravel | PHP | Status |
+| Sentinel version | Laravel | PHP | Status |
 |---|---|---|---|
 | `1.x` | `11.x`, `12.x` | `>=8.2` | Active |
 
@@ -54,26 +54,26 @@ Composer constraints (current):
 
 - Only actively maintained major versions receive fixes/features.
 - Security fixes are prioritized for the latest maintained major.
-- When a Laravel major reaches end-of-life, support can be dropped in the next Shield major.
+- When a Laravel major reaches end-of-life, support can be dropped in the next Sentinel major.
 
 ### Upgrade guidance
 
-- Use a stable constraint in host apps: `composer require queopius/shield:^1.0`
+- Use a stable constraint in host apps: `composer require queopius/sentinel:^1.0`
 - Read release notes before any major upgrade (`1.x` -> `2.x`).
-- Run: `php artisan shield:audit` after upgrades to validate effective runtime security.
+- Run: `php artisan sentinel:audit` after upgrades to validate effective runtime security.
 
 ## Quick start in 5 minutes
 
 1. Install package:
 
 ```bash
-composer require queopius/shield
+composer require queopius/sentinel
 ```
 
 2. Run installer:
 
 ```bash
-php artisan shield:install --with-views
+php artisan sentinel:install --with-views
 ```
 
 3. Migrate (for CSP reports table):
@@ -87,15 +87,15 @@ php artisan migrate
 5. Run audit:
 
 ```bash
-php artisan shield:audit
+php artisan sentinel:audit
 ```
 
 ## Installation and publish
 
 ```bash
-php artisan vendor:publish --tag=shield-config
-php artisan vendor:publish --tag=shield-views
-php artisan vendor:publish --tag=shield-migrations
+php artisan vendor:publish --tag=sentinel-config
+php artisan vendor:publish --tag=sentinel-views
+php artisan vendor:publish --tag=sentinel-migrations
 ```
 
 ## Middleware registration (Laravel 11/12)
@@ -105,19 +105,19 @@ Add aliases/global middleware in `bootstrap/app.php`:
 ```php
 ->withMiddleware(function (Middleware $middleware): void {
     $middleware->alias([
-        'shield.headers' => \Queopius\Shield\Http\Middleware\AddSecurityHeaders::class,
-        'shield.https' => \Queopius\Shield\Http\Middleware\EnforceHttps::class,
+        'sentinel.headers' => \Queopius\Sentinel\Http\Middleware\AddSecurityHeaders::class,
+        'sentinel.https' => \Queopius\Sentinel\Http\Middleware\EnforceHttps::class,
     ]);
 
     // Optional global
-    $middleware->append(\Queopius\Shield\Http\Middleware\EnforceHttps::class);
-    $middleware->append(\Queopius\Shield\Http\Middleware\AddSecurityHeaders::class);
+    $middleware->append(\Queopius\Sentinel\Http\Middleware\EnforceHttps::class);
+    $middleware->append(\Queopius\Sentinel\Http\Middleware\AddSecurityHeaders::class);
 })
 ```
 
 ## Config basics
 
-Config file: `config/shield.php`
+Config file: `config/sentinel.php`
 
 Key areas:
 
@@ -136,14 +136,14 @@ Enable in config:
 ```php
 'ui' => [
   'enabled' => true,
-  'path' => 'shield',
+  'path' => 'sentinel',
   'middleware' => ['web', 'auth'],
-  'require_ability' => 'viewShieldDashboard',
+  'require_ability' => 'viewSentinelDashboard',
   'theme' => 'light', // light|dark|auto
 ]
 ```
 
-Then open `/shield`.
+Then open `/sentinel`.
 
 ### Dashboard access control (recommended)
 
@@ -151,21 +151,21 @@ Then open `/shield`.
 - Set `ui.require_ability` and define the Gate in your app:
 
 ```php
-Gate::define('viewShieldDashboard', fn ($user) => $user->hasRole('super_admin'));
+Gate::define('viewSentinelDashboard', fn ($user) => $user->hasRole('super_admin'));
 ```
 
 With Spatie Permission you can map it to a permission:
 
 ```php
-Gate::define('viewShieldDashboard', fn ($user) => $user->can('shield.view'));
+Gate::define('viewSentinelDashboard', fn ($user) => $user->can('sentinel.view'));
 ```
 
 Dashboard endpoint scan extras:
 
 - Dynamic paths filter via `scan_paths` query/form
 - Export scan results:
-  - `/shield?export=endpoints&format=json`
-  - `/shield?export=endpoints&format=csv`
+  - `/sentinel?export=endpoints&format=json`
+  - `/sentinel?export=endpoints&format=csv`
 
 ## CSP reports
 
@@ -174,7 +174,7 @@ Enable:
 ```php
 'csp_reports' => [
   'enabled' => true,
-  'route_path' => 'shield/csp-reports',
+  'route_path' => 'sentinel/csp-reports',
   'store_database' => true,
 ]
 ```
@@ -183,10 +183,10 @@ Use report-only initially, inspect reports, then enforce.
 
 ## Commands
 
-- `php artisan shield:install [--with-views] [--force]`
-- `php artisan shield:audit [--format=table|json|csv]`
-- `php artisan shield:scan [--json] [--paths=/,/login,/api]`
-- `php artisan shield:prune-reports [--days=30]`
+- `php artisan sentinel:install [--with-views] [--force]`
+- `php artisan sentinel:audit [--format=table|json|csv]`
+- `php artisan sentinel:scan [--json] [--paths=/,/login,/api]`
+- `php artisan sentinel:prune-reports [--days=30]`
 
 ## Recommended rollout path (safe adoption)
 
@@ -224,21 +224,21 @@ Then run:
 Open:
 
 - `https://your-app.test:8443`
-- `https://your-app.test:8443/shield`
+- `https://your-app.test:8443/sentinel`
 
 Full trust instructions are in `docs/guides/local-https.md`.
 
 ## Publishable views
 
-Views namespace: `shield`.
+Views namespace: `sentinel`.
 
 You can override UI templates by publishing views:
 
 ```bash
-php artisan vendor:publish --tag=shield-views
+php artisan vendor:publish --tag=sentinel-views
 ```
 
-Output path: `resources/views/vendor/shield`
+Output path: `resources/views/vendor/sentinel`
 
 ## Local development in a Laravel app (monorepo)
 
@@ -249,14 +249,14 @@ Host app `composer.json`:
   "repositories": [
     {
       "type": "path",
-      "url": "packages/queopius/shield",
+      "url": "packages/queopius/sentinel",
       "options": {
         "symlink": true
       }
     }
   ],
   "require": {
-    "queopius/shield": "*"
+    "queopius/sentinel": "^1.0"
   }
 }
 ```
@@ -264,11 +264,11 @@ Host app `composer.json`:
 Then:
 
 ```bash
-composer require queopius/shield:*
-php artisan shield:install --with-views
+composer require queopius/sentinel:^1.0
+php artisan sentinel:install --with-views
 php artisan migrate
-php artisan shield:audit
-php artisan shield:scan
+php artisan sentinel:audit
+php artisan sentinel:scan
 ```
 
 ## Package tests
@@ -310,7 +310,7 @@ This package includes:
 Local docs preview:
 
 ```bash
-cd packages/queopius/shield
+cd packages/queopius/sentinel
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r docs/requirements.txt
@@ -331,12 +331,12 @@ GitHub Actions docs workflow:
 Required repository secrets for RTD trigger:
 
 - `RTD_TOKEN`: Read the Docs API token
-- `RTD_PROJECT`: Read the Docs project slug (example: `queopius-shield`)
+- `RTD_PROJECT`: Read the Docs project slug (example: `queopius-sentinel`)
 
 ### Branding and badges notes
 
 - Logo placeholder path in this README:
-  - `.github/assets/logo-queopius-shield.png`
+  - `.github/assets/logo-queopius-sentinel.png`
 - If repository owner/name changes, update badge URLs accordingly.
 - If Read the Docs project slug changes, update:
   - `https://readthedocs.org/projects/<slug>/badge/?version=latest`

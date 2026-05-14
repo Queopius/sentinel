@@ -1,11 +1,11 @@
 # Config Reference
 
-Main file: `config/shield.php`
+Main file: `config/sentinel.php`
 
 ## Top-level keys
 
-- `enabled`: master toggle for Shield behavior.
-- `environments`: allowed environments where Shield is active.
+- `enabled`: master toggle for Sentinel behavior.
+- `environments`: allowed environments where Sentinel is active.
 - `exclude.paths` / `exclude.route_names`: global exclusions.
 - `preset`: baseline profile (`web_compatible`, `api_strict`, etc).
 - `strict_validation`: stricter validation for malformed CSP config.

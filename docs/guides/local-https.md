@@ -39,9 +39,9 @@ APP_URL=https://your-app.test:8443
 
 - `https://your-app.test:8443`
 
-7. Open Shield dashboard:
+7. Open Sentinel dashboard:
 
-- `https://your-app.test:8443/shield`
+- `https://your-app.test:8443/sentinel`
 
 ## Notes
 
@@ -84,7 +84,7 @@ Restart browser after trust update.
 
 ```bash
 curl -k -I https://your-app.test:8443
-curl -k -I https://your-app.test:8443/shield
+curl -k -I https://your-app.test:8443/sentinel
 ```
 
-If Shield headers are enabled, responses should include configured security headers.
+If Sentinel headers are enabled, responses should include configured security headers.

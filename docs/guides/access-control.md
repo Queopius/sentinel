@@ -1,6 +1,6 @@
 # Access Control
 
-Shield dashboard must not be public.
+Sentinel dashboard must not be public.
 
 ## Recommended config
 
@@ -8,7 +8,7 @@ Shield dashboard must not be public.
 'ui' => [
   'enabled' => true,
   'middleware' => ['web', 'auth'],
-  'require_ability' => 'viewShieldDashboard',
+  'require_ability' => 'viewSentinelDashboard',
 ],
 ```
 
@@ -17,12 +17,12 @@ Shield dashboard must not be public.
 In `AppServiceProvider`:
 
 ```php
-Gate::define('viewShieldDashboard', fn ($user) => $user->hasRole('super_admin') && $user->can('shield.view'));
+Gate::define('viewSentinelDashboard', fn ($user) => $user->hasRole('super_admin') && $user->can('sentinel.view'));
 ```
 
 ## Permission model (Spatie)
 
-1. Create permission `shield.view`.
+1. Create permission `sentinel.view`.
 2. Assign it to `super_admin`.
 3. Optionally assign to security-specific roles if your Gate allows it.
 
@@ -30,9 +30,9 @@ Gate::define('viewShieldDashboard', fn ($user) => $user->hasRole('super_admin') 
 
 - unauthenticated user: redirected to login (or denied)
 - authenticated without role/permission: `403`
-- `super_admin` with `shield.view`: allowed
+- `super_admin` with `sentinel.view`: allowed
 
 ## Sidebar visibility
 
-For admin UX, show Shield menu item only for `super_admin` users.
+For admin UX, show Sentinel menu item only for `super_admin` users.
 This is a UI convenience and not a replacement for backend authorization.

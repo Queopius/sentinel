@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Queopius Shield follows SemVer. Security fixes are provided for actively maintained major versions.
+Queopius Sentinel follows SemVer. Security fixes are provided for actively maintained major versions.
 
 | Version | Supported |
 |---|---|

@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Commands;
+namespace Queopius\Sentinel\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Event;
-use Queopius\Shield\Events\ShieldAuditCompleted;
-use Queopius\Shield\Support\SecurityAuditService;
+use Queopius\Sentinel\Events\SentinelAuditCompleted;
+use Queopius\Sentinel\Support\SecurityAuditService;
 
-class AuditShieldCommand extends Command
+class AuditSentinelCommand extends Command
 {
-    protected $signature = 'shield:audit {--format=table : table|json|csv}';
+    protected $signature = 'sentinel:audit {--format=table : table|json|csv}';
 
-    protected $description = 'Run Queopius Shield security audit';
+    protected $description = 'Run Queopius Sentinel security audit';
 
     public function handle(SecurityAuditService $auditService): int
     {
         $request = request();
-        $result = $auditService->audit($request, (array) config('shield', []));
+        $result = $auditService->audit($request, (array) config('sentinel', []));
 
-        Event::dispatch(new ShieldAuditCompleted($result));
+        Event::dispatch(new SentinelAuditCompleted($result));
 
         $format = (string) $this->option('format');
         if ($format === 'json') {

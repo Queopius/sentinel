@@ -3,21 +3,21 @@
 ## Composer install
 
 ```bash
-composer require queopius/shield
+composer require queopius/sentinel
 ```
 
 ## Publish resources
 
 ```bash
-php artisan vendor:publish --tag=shield-config
-php artisan vendor:publish --tag=shield-views
-php artisan vendor:publish --tag=shield-migrations
+php artisan vendor:publish --tag=sentinel-config
+php artisan vendor:publish --tag=sentinel-views
+php artisan vendor:publish --tag=sentinel-migrations
 ```
 
 ## Installer command
 
 ```bash
-php artisan shield:install --with-views
+php artisan sentinel:install --with-views
 ```
 
 Useful options:
@@ -35,18 +35,18 @@ php artisan migrate
 
 When `ui.enabled=true`, default dashboard route is:
 
-- `/shield`
+- `/sentinel`
 
 ## Verify commands
 
 ```bash
-php artisan shield:audit
-php artisan shield:scan
+php artisan sentinel:audit
+php artisan sentinel:scan
 ```
 
 ## Upgrade notes
 
-1. `composer update queopius/shield`
-2. Review `config/shield.php` changes.
+1. `composer update queopius/sentinel`
+2. Review `config/sentinel.php` changes.
 3. Republish views only if needed.
 4. Run migrations if package introduces new schema.

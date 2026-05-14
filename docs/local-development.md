@@ -3,7 +3,7 @@
 Recommended structure:
 
 - Host Laravel app at repository root
-- Package at `packages/queopius/shield`
+- Package at `packages/queopius/sentinel`
 
 ## Host `composer.json`
 
@@ -12,12 +12,12 @@ Recommended structure:
   "repositories": [
     {
       "type": "path",
-      "url": "packages/queopius/shield",
+      "url": "packages/queopius/sentinel",
       "options": { "symlink": true }
     }
   ],
   "require": {
-    "queopius/shield": "*"
+    "queopius/sentinel": "^1.0"
   }
 }
 ```
@@ -25,10 +25,10 @@ Recommended structure:
 ## Iteration flow
 
 ```bash
-composer update queopius/shield
+composer update queopius/sentinel
 php artisan optimize:clear
-php artisan shield:audit
-php artisan shield:scan
+php artisan sentinel:audit
+php artisan sentinel:scan
 ```
 
 ## App integration checks

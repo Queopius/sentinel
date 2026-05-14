@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Http\Middleware;
+namespace Queopius\Sentinel\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use Queopius\Shield\Support\HeaderManager;
-use Queopius\Shield\Support\ShieldPresetResolver;
+use Queopius\Sentinel\Support\HeaderManager;
+use Queopius\Sentinel\Support\SentinelPresetResolver;
 use Symfony\Component\HttpFoundation\Response;
 
 class AddSecurityHeaders
 {
     public function __construct(
         private readonly HeaderManager $headerManager,
-        private readonly ShieldPresetResolver $presetResolver,
+        private readonly SentinelPresetResolver $presetResolver,
     ) {}
 
     public function handle(Request $request, Closure $next): Response
@@ -24,7 +24,7 @@ class AddSecurityHeaders
         /** @var Response $response */
         $response = $next($request);
 
-        $config = $this->presetResolver->resolvedConfig((array) config('shield', []));
+        $config = $this->presetResolver->resolvedConfig((array) config('sentinel', []));
         if (! $this->shouldApply($request, $config)) {
             return $response;
         }
@@ -37,7 +37,7 @@ class AddSecurityHeaders
                 }
             }
         } catch (\Throwable $e) {
-            Log::warning('Queopius Shield failed to append security headers: '.$e->getMessage());
+            Log::warning('Queopius Sentinel failed to append security headers: '.$e->getMessage());
         }
 
         return $response;

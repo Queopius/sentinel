@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Events;
+namespace Queopius\Sentinel\Events;
 
-class ShieldScanCompleted
+class SentinelScanCompleted
 {
     /** @param array<int,array<string,mixed>> $results */
     public function __construct(public readonly array $results) {}

@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Commands;
+namespace Queopius\Sentinel\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Event;
-use Queopius\Shield\Events\ShieldScanCompleted;
-use Queopius\Shield\Support\EndpointScanner;
+use Queopius\Sentinel\Events\SentinelScanCompleted;
+use Queopius\Sentinel\Support\EndpointScanner;
 
-class ScanShieldCommand extends Command
+class ScanSentinelCommand extends Command
 {
-    protected $signature = 'shield:scan {--json} {--paths=/,/login,/api}';
+    protected $signature = 'sentinel:scan {--json} {--paths=/,/login,/api}';
 
     protected $description = 'Scan endpoints and compare security header consistency';
 
     public function handle(EndpointScanner $scanner): int
     {
         $paths = array_values(array_filter(array_map('trim', explode(',', (string) $this->option('paths')))));
-        $results = $scanner->scan($paths, (array) config('shield', []));
+        $results = $scanner->scan($paths, (array) config('sentinel', []));
 
-        Event::dispatch(new ShieldScanCompleted($results));
+        Event::dispatch(new SentinelScanCompleted($results));
 
         if ((bool) $this->option('json')) {
             $this->line((string) json_encode($results, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));

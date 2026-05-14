@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to Queopius Shield.
+Thanks for contributing to Queopius Sentinel.
 
 ## Development Setup
 

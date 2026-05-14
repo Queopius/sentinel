@@ -11,7 +11,7 @@ This package is already prepared for Read the Docs with MkDocs.
 ## Steps in Read the Docs
 
 1. Create/import project in Read the Docs.
-2. Point to repository containing `packages/queopius/shield`.
+2. Point to repository containing `packages/queopius/sentinel`.
 3. Ensure default branch is correct.
 4. Trigger build.
 
@@ -23,7 +23,7 @@ Read the Docs will detect:
 
 ## Local preview
 
-From `packages/queopius/shield`:
+From `packages/queopius/sentinel`:
 
 ```bash
 python3 -m venv .venv

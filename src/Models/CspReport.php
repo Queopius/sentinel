@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Models;
+namespace Queopius\Sentinel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class CspReport extends Model
 {
-    protected $table = 'shield_csp_reports';
+    protected $table = 'sentinel_csp_reports';
 
     protected $guarded = [];
 

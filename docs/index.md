@@ -1,12 +1,12 @@
-# Queopius Shield
+# Queopius Sentinel
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png" alt="Queopius Shield logo" width="420" style="max-width: 100%; height: auto;">
+  <img src="https://raw.githubusercontent.com/queopius/sentinel/main/.github/assets/logo-queopius-sentinel.png" alt="Queopius Sentinel logo" width="420" style="max-width: 100%; height: auto;">
 </p>
 
 HTTP Security & HTTPS Hardening for Laravel.
 
-Queopius Shield helps teams apply production-grade HTTP security with:
+Queopius Sentinel helps teams apply production-grade HTTP security with:
 
 - security headers middleware (HSTS, CSP, Referrer-Policy, and more)
 - HTTPS enforcement middleware
@@ -15,7 +15,7 @@ Queopius Shield helps teams apply production-grade HTTP security with:
 - audit/scan/prune Artisan commands
 - publishable views for customization
 
-## Why use Shield
+## Why use Sentinel
 
 - Safe rollout path: start with report-only CSP, then enforce.
 - Works in monorepo local development and reusable package mode.
@@ -32,10 +32,10 @@ Queopius Shield helps teams apply production-grade HTTP security with:
 ## Core commands
 
 ```bash
-php artisan shield:install --with-views
-php artisan shield:audit
-php artisan shield:scan
-php artisan shield:prune-reports
+php artisan sentinel:install --with-views
+php artisan sentinel:audit
+php artisan sentinel:scan
+php artisan sentinel:prune-reports
 ```
 
 ## Recommended production rollout

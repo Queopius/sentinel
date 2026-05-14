@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\ViewModels;
+namespace Queopius\Sentinel\ViewModels;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
-use Queopius\Shield\Models\CspReport;
-use Queopius\Shield\Support\CspLearningService;
-use Queopius\Shield\Support\EndpointScanner;
-use Queopius\Shield\Support\SecurityAuditService;
+use Queopius\Sentinel\Models\CspReport;
+use Queopius\Sentinel\Support\CspLearningService;
+use Queopius\Sentinel\Support\EndpointScanner;
+use Queopius\Sentinel\Support\SecurityAuditService;
 
-class ShieldDashboardViewModel
+class SentinelDashboardViewModel
 {
     public function __construct(
         private readonly SecurityAuditService $auditService,
@@ -22,7 +22,7 @@ class ShieldDashboardViewModel
     /** @return array<string,mixed> */
     public function data(Request $request): array
     {
-        $config = (array) config('shield', []);
+        $config = (array) config('sentinel', []);
         $audit = $this->auditService->audit($request, $config);
         $timelineDays = $this->resolveTimelineDays($request);
         $checkMetrics = $this->buildCheckMetrics($audit['checks']);
@@ -393,7 +393,7 @@ class ShieldDashboardViewModel
             $plan[] = [
                 'priority' => 'high',
                 'title' => 'Enable HTTPS redirect',
-                'description' => 'Turn on `shield.https.redirect` and keep redirects at edge/load balancer as primary enforcement.',
+                'description' => 'Turn on `sentinel.https.redirect` and keep redirects at edge/load balancer as primary enforcement.',
             ];
         }
 
@@ -415,7 +415,7 @@ class ShieldDashboardViewModel
             $plan[] = [
                 'priority' => 'medium',
                 'title' => 'Apply HSTS on HTTPS requests',
-                'description' => 'Verify TLS termination/proxy trust so Shield can emit Strict-Transport-Security.',
+                'description' => 'Verify TLS termination/proxy trust so Sentinel can emit Strict-Transport-Security.',
             ];
         }
 

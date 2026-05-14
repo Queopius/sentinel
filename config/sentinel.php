@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'enabled' => env('SHIELD_ENABLED', true),
+    'enabled' => env('SENTINEL_ENABLED', true),
     'environments' => ['production', 'staging', 'local', 'testing'],
-    'strict_validation' => env('SHIELD_STRICT_VALIDATION', false),
+    'strict_validation' => env('SENTINEL_STRICT_VALIDATION', false),
 
     'exclude' => [
         'paths' => [
@@ -15,12 +15,12 @@ return [
         'route_names' => [],
     ],
 
-    'preset' => env('SHIELD_PRESET', 'web_compatible'),
+    'preset' => env('SENTINEL_PRESET', 'web_compatible'),
 
     'https' => [
-        'redirect' => env('SHIELD_HTTPS_REDIRECT', false),
+        'redirect' => env('SENTINEL_HTTPS_REDIRECT', false),
         'redirect_status' => 308,
-        'force_scheme' => env('SHIELD_HTTPS_FORCE_SCHEME', false),
+        'force_scheme' => env('SENTINEL_HTTPS_FORCE_SCHEME', false),
         'exclude_paths' => ['up', 'health*'],
         'exclude_route_names' => [],
         'only_in_environments' => ['production', 'staging'],
@@ -37,7 +37,7 @@ return [
         'csp' => [
             'enabled' => true,
             'report_only' => true,
-            'report_uri' => env('SHIELD_CSP_REPORT_URI'),
+            'report_uri' => env('SENTINEL_CSP_REPORT_URI'),
             'report_to' => null,
             'nonce' => [
                 'enabled' => false,
@@ -83,12 +83,12 @@ return [
     ],
 
     'ui' => [
-        'enabled' => env('SHIELD_UI_ENABLED', false),
-        'path' => env('SHIELD_UI_PATH', 'shield'),
+        'enabled' => env('SENTINEL_UI_ENABLED', false),
+        'path' => env('SENTINEL_UI_PATH', 'sentinel'),
         'middleware' => ['web', 'auth'],
         'require_ability' => null,
-        'logo_url' => 'https://raw.githubusercontent.com/queopius/shield/main/.github/assets/logo-queopius-shield.png',
-        'theme' => env('SHIELD_UI_THEME', 'light'), // light|dark|auto
+        'logo_url' => 'https://raw.githubusercontent.com/queopius/sentinel/main/.github/assets/logo-queopius-sentinel.png',
+        'theme' => env('SENTINEL_UI_THEME', 'light'), // light|dark|auto
         'show_csp_reports' => true,
         'endpoint_scan' => [
             'enabled' => true,
@@ -98,8 +98,8 @@ return [
     ],
 
     'csp_reports' => [
-        'enabled' => env('SHIELD_CSP_REPORTS_ENABLED', false),
-        'route_path' => env('SHIELD_CSP_REPORTS_PATH', 'shield/csp-reports'),
+        'enabled' => env('SENTINEL_CSP_REPORTS_ENABLED', false),
+        'route_path' => env('SENTINEL_CSP_REPORTS_PATH', 'sentinel/csp-reports'),
         'store_database' => true,
         'prune_days' => 30,
         'middleware' => ['api'],
@@ -118,13 +118,13 @@ return [
 
     'health_endpoint' => [
         'enabled' => false,
-        'path' => 'up/shield',
+        'path' => 'up/sentinel',
         'middleware' => ['api'],
     ],
 
     'views' => [
         'publishable' => true,
-        'namespace' => 'shield',
+        'namespace' => 'sentinel',
     ],
 
     'presets' => [

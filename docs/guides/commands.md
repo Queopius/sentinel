@@ -1,11 +1,11 @@
 # Commands
 
-## `shield:install`
+## `sentinel:install`
 
 Publishes package resources and prints integration instructions.
 
 ```bash
-php artisan shield:install --with-views
+php artisan sentinel:install --with-views
 ```
 
 Options:
@@ -13,37 +13,37 @@ Options:
 - `--with-views`
 - `--force`
 
-## `shield:audit`
+## `sentinel:audit`
 
 Runs security checks and warnings.
 
 ```bash
-php artisan shield:audit
-php artisan shield:audit --format=json
-php artisan shield:audit --format=csv
+php artisan sentinel:audit
+php artisan sentinel:audit --format=json
+php artisan sentinel:audit --format=csv
 ```
 
-## `shield:scan`
+## `sentinel:scan`
 
 Scans endpoints and compares expected headers vs actual responses.
 
 ```bash
-php artisan shield:scan
-php artisan shield:scan --json
-php artisan shield:scan --paths=/,/login,/api
+php artisan sentinel:scan
+php artisan sentinel:scan --json
+php artisan sentinel:scan --paths=/,/login,/api
 ```
 
-## `shield:prune-reports`
+## `sentinel:prune-reports`
 
 Deletes old CSP reports.
 
 ```bash
-php artisan shield:prune-reports
-php artisan shield:prune-reports --days=30
+php artisan sentinel:prune-reports
+php artisan sentinel:prune-reports --days=30
 ```
 
 ## Suggested scheduler
 
 ```php
-$schedule->command('shield:prune-reports')->daily();
+$schedule->command('sentinel:prune-reports')->daily();
 ```

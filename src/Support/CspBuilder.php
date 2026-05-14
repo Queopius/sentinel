@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Support;
+namespace Queopius\Sentinel\Support;
 
-use Queopius\Shield\Exceptions\InvalidShieldConfigException;
+use Queopius\Sentinel\Exceptions\InvalidSentinelConfigException;
 
 class CspBuilder
 {
@@ -62,7 +62,7 @@ class CspBuilder
 
             if (! isset($this->knownDirectives[$directive])) {
                 if ($strictValidation) {
-                    throw new InvalidShieldConfigException("Unknown CSP directive [{$directive}]");
+                    throw new InvalidSentinelConfigException("Unknown CSP directive [{$directive}]");
                 }
 
                 continue;
@@ -78,7 +78,7 @@ class CspBuilder
 
             if (! is_array($value)) {
                 if ($strictValidation) {
-                    throw new InvalidShieldConfigException("CSP directive [{$directive}] expects array|bool");
+                    throw new InvalidSentinelConfigException("CSP directive [{$directive}] expects array|bool");
                 }
 
                 continue;

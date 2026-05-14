@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Http\Controllers;
+namespace Queopius\Sentinel\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Queopius\Shield\Support\SecurityAuditService;
+use Queopius\Sentinel\Support\SecurityAuditService;
 
 class HealthController extends Controller
 {
     public function __invoke(Request $request, SecurityAuditService $auditService): JsonResponse
     {
-        $audit = $auditService->audit($request, (array) config('shield', []));
+        $audit = $auditService->audit($request, (array) config('sentinel', []));
         $summary = $audit['summary'];
         $status = ($summary['warnings_count'] ?? 0) > 0 ? 'warn' : 'ok';
 

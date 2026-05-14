@@ -2,7 +2,7 @@
 
 ## Dashboard returns 404
 
-- Confirm `ui.enabled=true` in `config/shield.php`.
+- Confirm `ui.enabled=true` in `config/sentinel.php`.
 - Run `php artisan optimize:clear`.
 
 ## Dashboard is public
@@ -22,7 +22,7 @@ HSTS is emitted only when request is secure (`https`).
 
 ## Theme/section resets while navigating
 
-- Use latest published Shield views.
+- Use latest published Sentinel views.
 - Clear cache: `php artisan optimize:clear`.
 - Re-publish views if app overrides old templates.
 
@@ -35,4 +35,4 @@ HSTS is emitted only when request is secure (`https`).
 ## Reverse proxy or port issues
 
 - Keep consistent base URL and trusted proxy setup.
-- Prefer route-relative links for internal Shield navigation.
+- Prefer route-relative links for internal Sentinel navigation.

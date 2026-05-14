@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Http\Middleware;
+namespace Queopius\Sentinel\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\URL;
-use Queopius\Shield\Support\ShieldPresetResolver;
+use Queopius\Sentinel\Support\SentinelPresetResolver;
 use Symfony\Component\HttpFoundation\Response;
 
 class EnforceHttps
 {
-    public function __construct(private readonly ShieldPresetResolver $presetResolver) {}
+    public function __construct(private readonly SentinelPresetResolver $presetResolver) {}
 
     public function handle(Request $request, Closure $next): Response
     {
-        $config = $this->presetResolver->resolvedConfig((array) config('shield', []));
+        $config = $this->presetResolver->resolvedConfig((array) config('sentinel', []));
 
         if ((bool) data_get($config, 'https.force_scheme', false)) {
             URL::forceScheme('https');

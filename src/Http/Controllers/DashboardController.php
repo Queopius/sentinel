@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Http\Controllers;
+namespace Queopius\Sentinel\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -10,15 +10,15 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Gate;
-use Queopius\Shield\Models\CspReport;
-use Queopius\Shield\ViewModels\ShieldDashboardViewModel;
+use Queopius\Sentinel\Models\CspReport;
+use Queopius\Sentinel\ViewModels\SentinelDashboardViewModel;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DashboardController extends Controller
 {
-    public function __invoke(Request $request, ShieldDashboardViewModel $viewModel): View|Response|JsonResponse|StreamedResponse
+    public function __invoke(Request $request, SentinelDashboardViewModel $viewModel): View|Response|JsonResponse|StreamedResponse
     {
-        $ability = config('shield.ui.require_ability');
+        $ability = config('sentinel.ui.require_ability');
         if (is_string($ability) && $ability !== '' && Gate::denies($ability)) {
             abort(403);
         }
@@ -33,7 +33,7 @@ class DashboardController extends Controller
             $reports = CspReport::query()->latest('received_at')->limit(20)->get();
         }
 
-        return view('shield::dashboard', [
+        return view('sentinel::dashboard', [
             ...$data,
             'recentReports' => $reports,
         ]);
@@ -61,7 +61,7 @@ class DashboardController extends Controller
         $timestamp = now()->toIso8601String();
 
         if ($format === 'csv') {
-            $filename = 'shield-endpoint-scan-'.now()->format('Ymd-His').'.csv';
+            $filename = 'sentinel-endpoint-scan-'.now()->format('Ymd-His').'.csv';
 
             return response()->streamDownload(static function () use ($rows): void {
                 $handle = fopen('php://output', 'wb');

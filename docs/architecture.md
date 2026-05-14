@@ -5,18 +5,18 @@
 1. Request enters app middleware stack.
 2. `EnforceHttps` optionally redirects insecure traffic.
 3. `AddSecurityHeaders` appends configured headers.
-4. Optional Shield dashboard reads audit services for observability.
+4. Optional Sentinel dashboard reads audit services for observability.
 
 ## Service Provider responsibilities
 
-`ShieldServiceProvider` handles:
+`SentinelServiceProvider` handles:
 
 - config merge (`mergeConfigFrom`)
 - resource publishing tags
 - views namespace registration
 - route loading (UI/CSP reports/health)
 - command registration
-- middleware aliases (`shield.headers`, `shield.https`)
+- middleware aliases (`sentinel.headers`, `sentinel.https`)
 
 ## Middleware
 
@@ -25,7 +25,7 @@
 
 ## Support services
 
-- `ShieldPresetResolver`: merges baseline preset + manual overrides.
+- `SentinelPresetResolver`: merges baseline preset + manual overrides.
 - `HeaderManager`: computes expected headers for request/config pair.
 - `HeaderInspector`: compares expected vs actual response headers.
 - `SecurityAuditService`: check engine (OK/Warning/Fail + warnings).
@@ -44,20 +44,20 @@
 
 ## Commands
 
-- `shield:install`
-- `shield:audit`
-- `shield:scan`
-- `shield:prune-reports`
+- `sentinel:install`
+- `sentinel:audit`
+- `sentinel:scan`
+- `sentinel:prune-reports`
 
 ## Events
 
-- `ShieldAuditCompleted`
-- `ShieldScanCompleted`
+- `SentinelAuditCompleted`
+- `SentinelScanCompleted`
 - `CspReportStored`
 
 ## Monorepo strategy
 
-Package remains isolated under `packages/queopius/shield` and is consumed via Composer path repository in host app.
+Package remains isolated under `packages/queopius/sentinel` and is consumed via Composer path repository in host app.
 
 ## Testing strategy
 

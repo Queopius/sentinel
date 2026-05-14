@@ -1,10 +1,10 @@
 # Production Readiness Checklist
 
-Use this checklist before publishing `queopius/shield` to Packagist or using it in production apps.
+Use this checklist before publishing `queopius/sentinel` to Packagist or using it in production apps.
 
 ## 1) Package portability
 
-- [ ] No host-app namespaces in package code (`App\\*` not required by Shield internals).
+- [ ] No host-app namespaces in package code (`App\\*` not required by Sentinel internals).
 - [ ] No project-specific URLs/emails in docs (use placeholders like `your-app.test`).
 - [ ] Config defaults are safe and environment-aware.
 - [ ] Service Provider uses `mergeConfigFrom`, publish tags, and route loading by feature flags.
@@ -38,12 +38,12 @@ Use this checklist before publishing `queopius/shield` to Packagist or using it 
 
 ## 5) DX and operability
 
-- [ ] `shield:install` outputs clear next steps.
-- [ ] `shield:audit` supports table and JSON export.
-- [ ] `shield:scan` works on default and custom paths.
-- [ ] Views publish/override tested (`shield-views`).
-- [ ] Config publish tested (`shield-config`).
-- [ ] Migrations publish tested (`shield-migrations`).
+- [ ] `sentinel:install` outputs clear next steps.
+- [ ] `sentinel:audit` supports table and JSON export.
+- [ ] `sentinel:scan` works on default and custom paths.
+- [ ] Views publish/override tested (`sentinel-views`).
+- [ ] Config publish tested (`sentinel-config`).
+- [ ] Migrations publish tested (`sentinel-migrations`).
 
 ## 6) Quality gates (must pass in CI)
 
@@ -63,7 +63,7 @@ Recommended CI environment requirements:
 - [ ] Mixed HTTP/HTTPS traffic during rollout.
 - [ ] CSP report floods: storage growth + prune schedule.
 - [ ] UI access denied for non-authorized roles.
-- [ ] Conflicting headers from upstream web server vs Shield middleware.
+- [ ] Conflicting headers from upstream web server vs Sentinel middleware.
 
 ## 8) Release checklist
 

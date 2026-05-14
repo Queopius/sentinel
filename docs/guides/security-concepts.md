@@ -1,6 +1,6 @@
 # Security Concepts
 
-This page explains the core HTTP security concepts behind Queopius Shield.
+This page explains the core HTTP security concepts behind Queopius Sentinel.
 
 ## CSP (Content Security Policy)
 
@@ -86,4 +86,4 @@ Symptoms:
 - HSTS not emitted on HTTPS traffic
 - wrong scheme in generated URLs
 
-Fix trusted proxies first, then validate with `shield:audit` and dashboard checks.
+Fix trusted proxies first, then validate with `sentinel:audit` and dashboard checks.

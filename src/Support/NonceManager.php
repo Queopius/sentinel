@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Support;
+namespace Queopius\Sentinel\Support;
 
 use Illuminate\Http\Request;
 
 class NonceManager
 {
-    private const KEY = '_shield_nonce';
+    private const KEY = '_sentinel_nonce';
 
     public function forRequest(Request $request): string
     {

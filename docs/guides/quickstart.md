@@ -5,13 +5,13 @@ This quickstart assumes Laravel 12 and PHP 8.3+.
 ## 1) Install package
 
 ```bash
-composer require queopius/shield
+composer require queopius/sentinel
 ```
 
 ## 2) Run installer
 
 ```bash
-php artisan shield:install --with-views
+php artisan sentinel:install --with-views
 ```
 
 ## 3) Migrate
@@ -22,14 +22,14 @@ php artisan migrate
 
 ## 4) Enable dashboard
 
-In `config/shield.php`:
+In `config/sentinel.php`:
 
 ```php
 'ui' => [
   'enabled' => true,
-  'path' => 'shield',
+  'path' => 'sentinel',
   'middleware' => ['web', 'auth'],
-  'require_ability' => 'viewShieldDashboard',
+  'require_ability' => 'viewSentinelDashboard',
 ],
 ```
 
@@ -40,20 +40,20 @@ In `bootstrap/app.php`:
 ```php
 ->withMiddleware(function (Middleware $middleware): void {
     $middleware->alias([
-        'shield.headers' => \Queopius\Shield\Http\Middleware\AddSecurityHeaders::class,
-        'shield.https' => \Queopius\Shield\Http\Middleware\EnforceHttps::class,
+        'sentinel.headers' => \Queopius\Sentinel\Http\Middleware\AddSecurityHeaders::class,
+        'sentinel.https' => \Queopius\Sentinel\Http\Middleware\EnforceHttps::class,
     ]);
 
     // Optional global middleware
-    $middleware->append(\Queopius\Shield\Http\Middleware\EnforceHttps::class);
-    $middleware->append(\Queopius\Shield\Http\Middleware\AddSecurityHeaders::class);
+    $middleware->append(\Queopius\Sentinel\Http\Middleware\EnforceHttps::class);
+    $middleware->append(\Queopius\Sentinel\Http\Middleware\AddSecurityHeaders::class);
 })
 ```
 
 ## 6) Run initial audit
 
 ```bash
-php artisan shield:audit
+php artisan sentinel:audit
 ```
 
-Then open `/shield` as an authorized user.
+Then open `/sentinel` as an authorized user.

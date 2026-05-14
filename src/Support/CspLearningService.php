@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Queopius\Shield\Support;
+namespace Queopius\Sentinel\Support;
 
 use Illuminate\Support\Collection;
-use Queopius\Shield\Models\CspReport;
+use Queopius\Sentinel\Models\CspReport;
 
 class CspLearningService
 {
