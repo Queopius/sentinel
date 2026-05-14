@@ -9,7 +9,7 @@
   <a href="https://github.com/queopius/sentinel/actions/workflows/docs.yml"><img src="https://img.shields.io/github/actions/workflow/status/queopius/sentinel/docs.yml?branch=main&label=docs" alt="Docs Build"></a>
   <a href="https://packagist.org/packages/queopius/sentinel"><img src="https://img.shields.io/packagist/v/queopius/sentinel" alt="Latest Version"></a>
   <a href="https://packagist.org/packages/queopius/sentinel"><img src="https://img.shields.io/packagist/dt/queopius/sentinel" alt="Total Downloads"></a>
-  <a href="https://queopius-sentinel.readthedocs.io/"><img src="https://readthedocs.org/projects/queopius-sentinel/badge/?version=latest" alt="Documentation Status"></a>
+  <a href="https://queopiussentinel.readthedocs.io/"><img src="https://readthedocs.org/projects/queopiussentinel/badge/?version=latest" alt="Documentation Status"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
   <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/docs%20license-CC%20BY%204.0-lightgrey" alt="Docs License"></a>
 </p>
@@ -331,7 +331,7 @@ GitHub Actions docs workflow:
 Required repository secrets for RTD trigger:
 
 - `RTD_TOKEN`: Read the Docs API token
-- `RTD_PROJECT`: Read the Docs project slug (example: `queopius-sentinel`)
+- `RTD_PROJECT`: Read the Docs project slug (example: `queopiussentinel`)
 
 ### Branding and badges notes
 

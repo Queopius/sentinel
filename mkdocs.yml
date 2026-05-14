@@ -1,6 +1,6 @@
 site_name: Queopius Sentinel
 site_description: HTTP Security & HTTPS Hardening for Laravel
-site_url: https://queopius-sentinel.readthedocs.io/
+site_url: https://queopiussentinel.readthedocs.io/
 repo_url: https://github.com/queopius/sentinel
 repo_name: queopius/sentinel
 edit_uri: edit/main/docs/

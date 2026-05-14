@@ -15,7 +15,7 @@
   "support": {
     "issues": "https://github.com/queopius/sentinel/issues",
     "source": "https://github.com/queopius/sentinel",
-    "docs": "https://queopius-sentinel.readthedocs.io/",
+    "docs": "https://queopiussentinel.readthedocs.io/",
     "security": "https://github.com/queopius/sentinel/security/policy"
   },
   "funding": [
