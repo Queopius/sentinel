@@ -12,6 +12,7 @@ class HeaderInspector
     public function __construct(private readonly HeaderManager $headerManager) {}
 
     /**
+     * @param  array<string,mixed>  $config
      * @return array{expected: array<string,string>, actual: array<string,string>, missing: array<int,string>, mismatched: array<int, array{header:string, expected:string, actual:string}>}
      */
     public function inspect(Request $request, Response $response, array $config): array

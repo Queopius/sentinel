@@ -60,7 +60,10 @@ class SentinelDashboardViewModel
         ];
     }
 
-    /** @param array<string,mixed> $config @return array<string,mixed> */
+    /**
+     * @param  array<string,mixed>  $config
+     * @return array<string,mixed>
+     */
     private function configSnapshot(array $config): array
     {
         return [
@@ -85,7 +88,7 @@ class SentinelDashboardViewModel
         $metrics = ['ok' => 0, 'warning' => 0, 'fail' => 0];
 
         foreach ($checks as $check) {
-            $status = (string) ($check['status'] ?? '');
+            $status = $check['status'];
             if (array_key_exists($status, $metrics)) {
                 $metrics[$status]++;
             }
@@ -267,12 +270,12 @@ class SentinelDashboardViewModel
         $scoreSum = 0;
         $worstScore = 100;
         foreach ($rows as $row) {
-            if ((bool) ($row['ok'] ?? false)) {
+            if ($row['ok']) {
                 $ok++;
             }
 
-            $missingCount = count((array) ($row['missing_headers'] ?? []));
-            $mismatchedCount = count((array) ($row['mismatched_headers'] ?? []));
+            $missingCount = count($row['missing_headers']);
+            $mismatchedCount = count($row['mismatched_headers']);
             if ($missingCount > 0) {
                 $withMissing++;
             }
@@ -282,7 +285,7 @@ class SentinelDashboardViewModel
 
             $totalMissing += $missingCount;
             $totalMismatched += $mismatchedCount;
-            $score = (int) ($row['score'] ?? 100);
+            $score = $row['score'];
             $scoreSum += $score;
             $worstScore = min($worstScore, $score);
         }
@@ -343,16 +346,16 @@ class SentinelDashboardViewModel
         ];
 
         $score = 100;
-        $missing = (array) ($row['missing_headers'] ?? []);
-        $mismatched = (array) ($row['mismatched_headers'] ?? []);
-        $status = (int) ($row['status'] ?? 200);
+        $missing = $row['missing_headers'];
+        $mismatched = $row['mismatched_headers'];
+        $status = $row['status'];
 
         foreach ($missing as $header) {
             $score -= in_array($header, $criticalHeaders, true) ? 14 : 9;
         }
 
         foreach ($mismatched as $item) {
-            $header = (string) ($item['header'] ?? '');
+            $header = $item['header'];
             $score -= in_array($header, $criticalHeaders, true) ? 10 : 6;
         }
 
@@ -386,8 +389,8 @@ class SentinelDashboardViewModel
     private function buildHardeningPlan(array $audit): array
     {
         $plan = [];
-        $summary = (array) ($audit['summary'] ?? []);
-        $warnings = (array) ($audit['warnings'] ?? []);
+        $summary = $audit['summary'];
+        $warnings = $audit['warnings'];
 
         if (! (bool) ($summary['https_redirect_enabled'] ?? false)) {
             $plan[] = [

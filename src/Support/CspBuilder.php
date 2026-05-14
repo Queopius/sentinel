@@ -29,6 +29,7 @@ class CspBuilder
         'block-all-mixed-content' => true,
     ];
 
+    /** @param array<string,mixed> $config */
     public function build(array $config, ?string $nonce = null, bool $strictValidation = false): string
     {
         $directives = (array) ($config['directives'] ?? []);

@@ -32,8 +32,8 @@ class ScanSentinelCommand extends Command
             $r['path'],
             (string) $r['status'],
             $r['ok'] ? 'yes' : 'no',
-            (string) count((array) ($r['missing_headers'] ?? [])),
-            (string) count((array) ($r['mismatched_headers'] ?? [])),
+            (string) count($r['missing_headers']),
+            (string) count($r['mismatched_headers']),
         ], $results);
         $this->table(['Path', 'Status', 'Headers OK', 'Missing', 'Mismatched'], $rows);
 

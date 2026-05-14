@@ -43,6 +43,7 @@ class AddSecurityHeaders
         return $response;
     }
 
+    /** @param array<string,mixed> $config */
     private function shouldApply(Request $request, array $config): bool
     {
         if (! (bool) ($config['enabled'] ?? true)) {
@@ -60,7 +61,7 @@ class AddSecurityHeaders
             }
         }
 
-        $name = $request->route()?->getName();
+        $name = $request->route()->getName();
         if (is_string($name) && in_array($name, (array) Arr::get($config, 'exclude.route_names', []), true)) {
             return false;
         }

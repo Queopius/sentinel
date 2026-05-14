@@ -7,7 +7,6 @@ namespace Queopius\Sentinel\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Gate;
 use Queopius\Sentinel\Models\CspReport;
@@ -16,7 +15,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DashboardController extends Controller
 {
-    public function __invoke(Request $request, SentinelDashboardViewModel $viewModel): View|Response|JsonResponse|StreamedResponse
+    public function __invoke(Request $request, SentinelDashboardViewModel $viewModel): View|JsonResponse|StreamedResponse
     {
         $ability = config('sentinel.ui.require_ability');
         if (is_string($ability) && $ability !== '' && Gate::denies($ability)) {
@@ -53,7 +52,7 @@ class DashboardController extends Controller
     /**
      * @param  array<string,mixed>  $data
      */
-    private function exportEndpoints(array $data, string $format): Response|JsonResponse|StreamedResponse
+    private function exportEndpoints(array $data, string $format): JsonResponse|StreamedResponse
     {
         $endpointScan = (array) ($data['endpointScan'] ?? []);
         $rows = (array) ($endpointScan['rows'] ?? []);

@@ -6,6 +6,7 @@ namespace Queopius\Sentinel\Support;
 
 class HstsBuilder
 {
+    /** @param array<string,mixed> $config */
     public function build(array $config): string
     {
         $maxAge = (int) ($config['max_age'] ?? 0);

@@ -14,6 +14,7 @@ class SecurityAuditService
     ) {}
 
     /**
+     * @param  array<string,mixed>  $config
      * @return array{checks: array<int, array{key:string,status:string,message:string}>, warnings: array<int,string>, summary: array<string,mixed>, expected_headers: array<string,string>}
      */
     public function audit(Request $request, array $config): array

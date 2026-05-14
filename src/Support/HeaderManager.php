@@ -15,6 +15,7 @@ class HeaderManager
     ) {}
 
     /**
+     * @param  array<string,mixed>  $config
      * @return array<string, string>
      */
     public function expectedHeaders(Request $request, array $config): array

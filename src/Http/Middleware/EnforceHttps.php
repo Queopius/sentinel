@@ -34,6 +34,7 @@ class EnforceHttps
         return $next($request);
     }
 
+    /** @param array<string,mixed> $config */
     private function shouldRedirect(Request $request, array $config): bool
     {
         if (! (bool) data_get($config, 'enabled', true)) {
@@ -55,7 +56,7 @@ class EnforceHttps
             }
         }
 
-        $name = $request->route()?->getName();
+        $name = $request->route()->getName();
         if (is_string($name) && in_array($name, (array) Arr::get($config, 'https.exclude_route_names', []), true)) {
             return false;
         }

@@ -13,6 +13,7 @@ class EndpointScanner
 
     /**
      * @param  array<int, string>  $paths
+     * @param  array<string,mixed>  $config
      * @return array<int, array{
      *   path:string,
      *   status:int,
