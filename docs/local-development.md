@@ -17,7 +17,7 @@ Recommended structure:
     }
   ],
   "require": {
-    "queopius/sentinel": "^1.0"
+    "queopius/sentinel": "^2.0"
   }
 }
 ```

@@ -20,7 +20,7 @@ Queopius Sentinel helps teams apply production-grade HTTP security with:
 - Safe rollout path: start with report-only CSP, then enforce.
 - Works in monorepo local development and reusable package mode.
 - Clear DX: install command, config presets, dashboard visibility.
-- Built for Laravel 12 and compatible with Laravel 11/12 workflows.
+- Built for Laravel 11, 12, and 13 workflows.
 
 ## Read this first
 

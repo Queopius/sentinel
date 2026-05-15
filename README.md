@@ -28,7 +28,7 @@ Queopius Sentinel is a production-ready Laravel package for HTTP security harden
 - Safe-by-default with preset support
 - Progressive rollout path (CSP report-only first)
 - Works as reusable package and monorepo local package
-- Built for Laravel 12 and compatible with 11/12
+- Built for Laravel 11, 12, and 13
 
 ## Versioning and Laravel compatibility
 
@@ -42,12 +42,15 @@ Queopius Sentinel follows **SemVer** for package versions.
 
 | Sentinel version | Laravel | PHP | Status |
 |---|---|---|---|
-| `1.x` | `11.x`, `12.x` | `>=8.2` | Active |
+| `2.x` | `11.x`, `12.x` | `8.2`, `8.3`, `8.4` | Active |
+| `2.x` | `13.x` | `8.3`, `8.4` | Active |
 
 Composer constraints (current):
 
-- `illuminate/*`: `^11.0|^12.0`
+- `illuminate/*`: `^11.0|^12.0|^13.0`
 - `php`: `^8.2`
+
+Laravel 13 requires PHP `^8.3`, so PHP 8.2 support applies to Laravel 11 and 12 only.
 
 ### Support policy
 
@@ -57,7 +60,7 @@ Composer constraints (current):
 
 ### Upgrade guidance
 
-- Use a stable constraint in host apps: `composer require queopius/sentinel:^1.0`
+- Use a stable constraint in host apps: `composer require queopius/sentinel:^2.0`
 - Read release notes before any major upgrade (`1.x` -> `2.x`).
 - Run: `php artisan sentinel:audit` after upgrades to validate effective runtime security.
 
@@ -97,7 +100,7 @@ php artisan vendor:publish --tag=sentinel-views
 php artisan vendor:publish --tag=sentinel-migrations
 ```
 
-## Middleware registration (Laravel 11/12)
+## Middleware registration (Laravel 11/12/13)
 
 Add aliases/global middleware in `bootstrap/app.php`:
 
@@ -255,7 +258,7 @@ Host app `composer.json`:
     }
   ],
   "require": {
-    "queopius/sentinel": "^1.0"
+    "queopius/sentinel": "^2.0"
   }
 }
 ```
@@ -263,7 +266,7 @@ Host app `composer.json`:
 Then:
 
 ```bash
-composer require queopius/sentinel:^1.0
+composer require queopius/sentinel:^2.0
 php artisan sentinel:install --with-views
 php artisan migrate
 php artisan sentinel:audit

@@ -12,7 +12,7 @@ Use this checklist before publishing `queopius/sentinel` to Packagist or using i
 ## 2) Runtime compatibility matrix
 
 - [ ] PHP versions tested: `8.2`, `8.3`, `8.4`.
-- [ ] Laravel versions tested: `11.x`, `12.x`.
+- [ ] Laravel versions tested: `11.x`, `12.x`, `13.x`.
 - [ ] HTTP server modes verified:
   - [ ] Direct app server
   - [ ] Reverse proxy (Nginx/ALB/Cloudflare)

@@ -1,6 +1,6 @@
 # Quickstart
 
-This quickstart assumes Laravel 12 and PHP 8.3+.
+This quickstart assumes Laravel 11, 12, or 13. Use PHP 8.2+ for Laravel 11/12 and PHP 8.3+ for Laravel 13.
 
 ## 1) Install package
 
