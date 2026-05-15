@@ -56,7 +56,9 @@ class EnforceHttps
             }
         }
 
-        $name = $request->route()->getName();
+        $route = $request->route();
+        $name = is_object($route) && method_exists($route, 'getName') ? $route->getName() : null;
+
         if (is_string($name) && in_array($name, (array) Arr::get($config, 'https.exclude_route_names', []), true)) {
             return false;
         }
