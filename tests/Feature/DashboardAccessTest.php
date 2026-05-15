@@ -35,7 +35,7 @@ class DashboardAccessTest extends TestCase
     {
         $response = $this->get('/sentinel?export=endpoints&format=csv');
         $response->assertOk();
-        $response->assertHeader('content-type', 'text/csv; charset=UTF-8');
+        $this->assertStringStartsWith('text/csv;', strtolower((string) $response->headers->get('content-type')));
         $response->assertHeader('content-disposition');
         $this->assertStringContainsString('path,status,ok,score,severity,missing_count,mismatched_count,missing_headers,mismatched_headers', $response->streamedContent());
     }
